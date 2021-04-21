@@ -3,48 +3,51 @@
 </h1>
 
 ## 🤖 Sobre o projeto
- MARCIA BOT, é um serviço que auxilia o atendimento residencial para Farmácias.
+
+MARCIA BOT, é um serviço que auxilia o atendimento residencial para Farmácias.
 
 ---
+
 ## ⚙️ Funcionalidades
-  - Atendimento ao cliente via aplicativo de mensagem instantânea por meio do bot
-    - Fazer pedido de remédios via bot
-  - Interface para farmácia gerenciar os pedidos
-    - Aceitar e recusar os pedidos
-    - Visualizar os pedidos confirmados
+
+- Atendimento ao cliente via aplicativo de mensagem instantânea por meio do bot
+  - Fazer pedido de remédios via bot
+- Interface para farmácia gerenciar os pedidos
+  - Aceitar e recusar os pedidos
+  - Visualizar os pedidos confirmados
 
 ---
+
 ## 🛠 Techs utilizadas
-  - API
-    - Java
-    - PostgresSQL
-  - Client
-    - ReactJS
-    - ElectronJS
-    - TypeScript
-  - Bot
-    - Python
-    - Selenium
+
+- API
+  - Java
+  - PostgresSQL
+- Client
+  - ReactJS
+  - ElectronJS
+  - TypeScript
+- Bot
+  - Python
+  - Selenium
 
 ---
+
 ## 🎨 Design
+
 <table>
-  <tr>
-    <td colspan="2">Pedidos a confirmar</td>
-  <tr>
-  <tr>
-    <td><img src="./readme/confirmar_tela.png" width=300 /></td><td><img src="./readme/modal_confirmar.png" width=300 /></td>
-  </tr>
   <tr>
     <td colspan="2">Pedidos Confirmados</td>
   <tr>
   <tr>
-    <td><img src="./readme/confirmados_tela.png" width=300 /></td><td><img src="./readme/modal_confirmados.png" width=300 /></td>
+    <td><img src="./readme/confirmados_tela.png" width=300 /></td><td><img src="./readme/modal_confirmar.png" width=300 /></td>
   </tr>
 </table>
 
 ---
+
 ## 🦸 Equipe de desenvolvimento
+
   <table>
     <tr>
       <td><img style="border-radius: 50%;" src="https://media-exp1.licdn.com/dms/image/C5603AQGIGSs3TDQMfw/profile-displayphoto-shrink_200_200/0/1606589475490?e=1623888000&v=beta&t=Wqm5O_digI8qVSSaByozO0EOJRvLwuQ8LUx4MhybUDo" width="100px;" alt=""/></td>

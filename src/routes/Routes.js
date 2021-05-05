@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import PedidosConfirmar from "./views/PedidosConfirmar/index";
-import PedidosConfirmados from "./views/PedidosConfirmados/index";
+import PedidosConfirmar from "../views/PedidosConfirmar/index";
+import PedidosConfirmados from "../views/PedidosConfirmados/index";
 
 function Routes() {
   return (

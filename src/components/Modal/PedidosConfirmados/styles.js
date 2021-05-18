@@ -23,23 +23,21 @@ export const ModalWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px 15px;
-  position: relative;
   z-index: 10;
   border-radius: 10px;
-  justify-content: center;
 `;
 
 export const Header = styled.header`
   background: #22333B;
+  width: 100%;
+  height: 180px;
   grid-column: 1/3;
-  border-radius: 10px;
+  border-radius: 10px/ 10px 10px 0px 0px;
   display: flex;
   justify-content: space-between;
 `;
 
 export const Informations = styled.div`
-  width: 400px;
-  height: 140px;
   color: #ffffff;
   padding-left: 30px;
   display:flex;
@@ -65,6 +63,13 @@ export const Informations = styled.div`
     display: flex;
     flex-direction: column;
    }
+
+   p span {
+     margin-top: 5px;
+   }
+   b{
+     font-weight: 700;
+   }
    label {
     font-weight: 700;
    }
@@ -75,16 +80,19 @@ export const Produtos = styled.section`
   border-radius: 10px;
   color: #ffffff;
   grid-column: 1/2;
-  margin-left: 10px;
-  margin-bottom: 15px;
+  height: 300px;
+  width: 450px;
+  margin-left: 30px;
   display:flex;
   flex-direction: column;
   font-family:sans-serif;
+  margin-bottom: 50px;
   
   header{
     height: 60px;
+    width: 420px;
     background: #22333B;
-    border-radius: 10px;
+    border-radius: 10px / 10px 10px 0px 0px ;
     padding-left: 30px;
   }
 
@@ -95,11 +103,16 @@ export const Produtos = styled.section`
   
   ul{
     display: grid;
+    margin-left: 10px;
     grid-template-columns: 1fr;
     grid-gap: 15px;
     list-style: none;
+    width: 400px;
+    height: 200px;
     padding-right: 10px;
     padding-left: 10px;
+    overflow: hidden;
+    overflow-y: scroll;
   }
   ul li {
     padding-top: 10px;
@@ -110,6 +123,12 @@ export const Produtos = styled.section`
     position: relative;
     font-size: 17px;
     font-weight: 500;
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0px 8px 15px #818181;
+      transition-duration: 0.2s;
+      transform: translateY(-5px);
+    }
   }
 
   ul li section{
@@ -123,20 +142,23 @@ export const Produtos = styled.section`
 
 export const Observacoes = styled.section`
   grid-column: 2/3;
-  margin-right: 10px;
+  margin-right: 30px;
+  height: 300px;
+  margin-left: 30px;
+  margin-bottom: 50px;
   color: #ffffff;
-  margin-bottom: 15px;
   background: #7D7D7D;
   display:flex;
   flex-direction: column;
   font-family:sans-serif;
   border-radius: 10px;
-
+  align-items: center;
   
   header{
     height: 60px;
+    width: 404px;
     background: #22333B;
-    border-radius: 10px;
+    border-radius: 10px / 10px 10px 0px 0px ;
     padding-left: 30px;
   }
 
@@ -144,22 +166,22 @@ export const Observacoes = styled.section`
     font-size: 25px;
     font-weight: 600;
   }
-  
-  textarea{
-    height: 100%;
+
+  div {
     background: #ffffff;
-    border: 0;
+    width: 400px;
+    height: 200px;
+    margin-top: 15px;
     border-radius: 3px;
-    margin: 10px;
-    font-family:sans-serif;
-    resize: none;
   }
 
-  textarea:focus{
-    box-shadow: 0 0 0 0;
-    border: 0 none;
-    outline: 0;
+  div span{
+    color: #010101;
+    padding: 5px;
+    font-size: 20px;
+    font-family:sans-serif;
   }
+  
 `;
 
 export const AreaButton = styled.footer`
@@ -167,13 +189,12 @@ export const AreaButton = styled.footer`
   border-radius: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly
+  justify-content: space-evenly;
 `;
 
 export const ModalButton = styled.div`
-  cursor: pointer; 
-  width: 238px;
-  height: 45px;
+  width: 250px;
+  height: 60px;
   border-radius: 8px;
   border-right: 20px;
   border-left: 20px;
@@ -189,11 +210,26 @@ export const ModalButton = styled.div`
   color: #FFFFFF;
   font-family: sans-serif;
 
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 8px 15px #A9A9A9;
+    transition-duration: 0.2s;
+    transform: translateY(-7px);
+  }
+
   ${(props) => props.confirmation && css`
       background: #0B7A75;
+
+      &:hover{
+        background: #178D88;
+      }
     `}
   ${
   (props) => props.denny && css`
       background: #A40E4C;
+
+      &:hover{
+        background: #B41959;
+      }
     `}
 `;

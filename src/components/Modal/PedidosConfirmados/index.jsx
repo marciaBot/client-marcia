@@ -18,10 +18,10 @@ function Modal({ mostrarModal, setMostrarModal }) {
 
   const animation = useSpring({
     config: {
-      duration: 250,
+      duration: 100,
     },
     opacity: mostrarModal ? 1 : 0,
-    transform: mostrarModal ? `translateY(0%)` : `translateY(-100%)`,
+    transform: mostrarModal ? `translateZ(0%)` : `translateZ(100%)`,
   });
 
   const fecharModal = (event) => {
@@ -52,12 +52,28 @@ function Modal({ mostrarModal, setMostrarModal }) {
                 <Informations>
                   <h1>Lucas da Silva Freitas</h1>
                   <div>
-                    <span>Quantidade: 2</span>
-                    <span>Total: R$195</span>
+                    <span>
+                      Quantidade:
+                      {' '}
+                      <b>2</b>
+                    </span>
+                    <span>
+                      Total:
+                      {' '}
+                      <b>R$ 195,00</b>
+                    </span>
                   </div>
                   <p>
-                    <span>Telefone: (91)4002-8922</span>
-                    <span>Forma de pagamento: Dinheiro</span>
+                    <span>
+                      Telefone:
+                      {'  '}
+                      <b>(91) 4002-8922</b>
+                    </span>
+                    <span>
+                      Forma de pagamento:
+                      {' '}
+                      <b>Dinheiro</b>
+                    </span>
                   </p>
                 </Informations>
               </Header>
@@ -95,6 +111,34 @@ function Modal({ mostrarModal, setMostrarModal }) {
                         </div>
                       </section>
                     </li>
+                    <li>
+                      <strong>Item: </strong>
+                      <span>XXXXXXXXXX</span>
+                      <section>
+                        <div>
+                          <strong>Quantidade: </strong>
+                          <span>2</span>
+                        </div>
+                        <div>
+                          <strong>Valor: </strong>
+                          <span>R$200,00</span>
+                        </div>
+                      </section>
+                    </li>
+                    <li>
+                      <strong>Item: </strong>
+                      <span>XXXXXXXXXX</span>
+                      <section>
+                        <div>
+                          <strong>Quantidade: </strong>
+                          <span>2</span>
+                        </div>
+                        <div>
+                          <strong>Valor: </strong>
+                          <span>R$200,00</span>
+                        </div>
+                      </section>
+                    </li>
                   </ul>
                 </section>
               </Produtos>
@@ -102,12 +146,10 @@ function Modal({ mostrarModal, setMostrarModal }) {
                 <header>
                   <h1>Observações</h1>
                 </header>
-                <textarea placeholder="Escreva aqui sua observação" />
+                <div>
+                  <span>Alguma Informação</span>
+                </div>
               </Observacoes>
-              <AreaButton>
-                <ModalButton denny>Negar Pedido</ModalButton>
-                <ModalButton confirmation>Aceitar Pedido</ModalButton>
-              </AreaButton>
             </ModalWrapper>
           </animated.div>
         </Background>

@@ -1,26 +1,16 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import Modal from "../../components/Modal/PedidosConfirmar/index";
+import {
+  TopContent,
+  Container,
+  Main,
+  PageTitle,
+  BottomContent,
+} from "./styles";
 
-import "./styles";
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
-
-const Button = styled.button`
-  min-width: 100px;
-  padding: 16px 32px;
-  border-radius: 4px;
-  border: none;
-  background: #141414;
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-`;
+import Navbar from "../../components/Navbar";
+import SearchBar from "../../components/SearchBar";
+import DashboardButton from "../../components/DashboardButton";
 
 function PedidosConfirmar() {
   const [mostrarModal, setMostrarModal] = useState(false);
@@ -29,12 +19,26 @@ function PedidosConfirmar() {
     setMostrarModal((prev) => !prev);
   };
   return (
-    <>
-      <Container>
-        <Button onClick={abrirModal}>Clica aqui</Button>
-        <Modal mostrarModal={mostrarModal} setMostrarModal={setMostrarModal} />
-      </Container>
-    </>
+    <Container>
+      <Navbar />
+      <Modal mostrarModal={mostrarModal} setMostrarModal={setMostrarModal} />
+      <Main>
+        <TopContent>
+          <PageTitle>Pedidos a confirmar</PageTitle>
+          <SearchBar />
+        </TopContent>
+        <BottomContent>
+          <DashboardButton onClick={abrirModal} />
+          <DashboardButton />
+          <DashboardButton />
+          <DashboardButton />
+          <DashboardButton />
+          <DashboardButton />
+          <DashboardButton />
+          <DashboardButton />
+        </BottomContent>
+      </Main>
+    </Container>
   );
 }
 

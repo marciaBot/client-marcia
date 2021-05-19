@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import Modal from "../../components/Modal/PedidosConfirmados/index";
 import {
   TopContent,
   Container,
@@ -11,16 +12,23 @@ import SearchBar from "../../components/SearchBar";
 import DashboardButton from "../../components/DashboardButton";
 
 function PedidosConfirmados() {
+  const [mostrarModal, setMostrarModal] = useState(false);
+
+  const abrirModal = () => {
+    setMostrarModal((prev) => !prev);
+  };
+
   return (
     <Container>
       <Navbar />
+      <Modal mostrarModal={mostrarModal} setMostrarModal={setMostrarModal} />
       <Main>
         <TopContent>
           <PageTitle>Pedidos Confirmados</PageTitle>
           <SearchBar />
         </TopContent>
         <BottomContent>
-          <DashboardButton />
+          <DashboardButton onClick={abrirModal} />
           <DashboardButton />
         </BottomContent>
       </Main>

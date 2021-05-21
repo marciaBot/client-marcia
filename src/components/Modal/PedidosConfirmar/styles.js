@@ -16,7 +16,7 @@ export const Background = styled.div`
 
 export const ModalWrapper = styled.div`
   width: 1000px;
-  height: 600px;
+  height: 650px;
   box-shadow: 0 5px 16px rgba(0,0,0,0.2);
   background: #fff;
   color: #000;
@@ -31,12 +31,23 @@ export const ModalWrapper = styled.div`
 export const Header = styled.header`
   background: #22333B;
   width: 100%;
-  height: 2000px;
-  height: 180px;
+  height: 200px;
   grid-column: 1/3;
   border-radius: 10px/ 10px 10px 0px 0px;
   display: flex;
   justify-content: space-between;
+
+  section {
+    display: flex;
+    flex-direction: row;
+  }
+  img {
+    width:32px;
+    height:32px;
+    background: #ffffff;
+    border-radius: 0px 10px 0px 10px;
+    cursor: pointer;
+  }
 `;
 
 export const Informations = styled.div`
@@ -45,15 +56,17 @@ export const Informations = styled.div`
   display:flex;
   flex-direction: column;
   font-family:"Raleway",sans-serif;
+  line-height: 35px;
 
   h1{
     color: #ffffff;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 600;
     font-family: "Raleway",sans-serif;
+    margin-bottom: 5px;
   }
   span{
-    font-size: 18px;
+    font-size: 26px;
     font-weight: 400;
   }
   div{
@@ -77,6 +90,21 @@ export const Informations = styled.div`
    }
 `;
 
+export const HeaderCard = styled.header`
+    height: 80px;
+    width: 400px;
+    background: #22333B;
+    border-radius: 10px 10px 0px 0px;
+    display:flex;
+    align-items: center;
+
+    h1{
+      font-size: 35px;
+      font-weight: 600;
+      margin-left: 25px;
+    }
+`;
+
 export const Produtos = styled.section`
   width: 400px;
   height: 300px;
@@ -89,48 +117,45 @@ export const Produtos = styled.section`
   flex-direction: column;
   font-family:"Raleway",sans-serif;
   margin-left: 60px;
-  
-  header{
-    height: 50px;
-    width: 400px;
-    background: #22333B;
-    border-radius: 10px / 10px 10px 0px 0px ;
-    padding-left: 30px;
-  }
 
-  header h1 {
-    font-size: 25px;
-    font-weight: 600;
-    padding: 10px;
-  }
-  
-  ul{
-    margin-top: 10px;
+  ul {
+    margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 15px;
     list-style: none;
-    height: 200px;
+    height: 180px;
     padding-right: 10px;
     padding-left: 10px;
     overflow: hidden;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #E0913E; 
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #E0913E; 
+    }
   }
+
   ul li {
-    padding-top: 10px;
-    padding-left: 10px;
+    width: 350px;
+    padding: 10px;
     background: #E0913E;
-    height: 80px;
+    height: 90px;
     border-radius: 8px;
     position: relative;
     font-size: 17px;
     font-weight: 500;
-    &:hover {
-      cursor: pointer;
-      box-shadow: 0px 8px 15px #818181;
-      transition-duration: 0.2s;
-      transform: translateY(-5px);
-    }
   }
 
   ul li section{
@@ -154,29 +179,24 @@ export const Observacoes = styled.section`
   font-family:"Raleway",sans-serif;
   border-radius: 10px;
   margin-left: 30px;
-
   
-  header{
-    height: 60px;
-    background: #22333B;
-    border-radius: 10px / 10px 10px 0px 0px ;;
-    padding-left: 30px;
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  header h1 {
-    font-size: 25px;
-    font-weight: 600;
-    padding: 10px;
-  }
-  
   textarea{
-    height: 100%;
+    margin-top: 35px;
+    height: 150px;
+    width:325px;
     background: #ffffff;
     border: 0;
-    border-radius: 3px;
-    margin: 10px;
+    border-radius: 10px;
     font-family:"Raleway",sans-serif;
     resize: none;
+    padding: 10px;
+    font-size: 18px;
   }
 
   textarea:focus{

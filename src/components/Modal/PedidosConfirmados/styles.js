@@ -16,7 +16,7 @@ export const Background = styled.div`
 
 export const ModalWrapper = styled.div`
   width: 1000px;
-  height: 600px;
+  height: 650px;
   box-shadow: 0 5px 16px rgba(0,0,0,0.2);
   background: #fff;
   color: #000;
@@ -25,33 +25,48 @@ export const ModalWrapper = styled.div`
   grid-gap: 20px 15px;
   z-index: 10;
   border-radius: 10px;
+  justify-content: center;
 `;
 
 export const Header = styled.header`
   background: #22333B;
   width: 100%;
-  height: 180px;
+  height: 200px;
   grid-column: 1/3;
   border-radius: 10px/ 10px 10px 0px 0px;
   display: flex;
   justify-content: space-between;
+
+  section {
+    display: flex;
+    flex-direction: row;
+  }
+  img {
+    width:32px;
+    height:32px;
+    background: #ffffff;
+    border-radius: 0px 10px 0px 10px;
+    cursor: pointer;
+  }
 `;
 
 export const Informations = styled.div`
   color: #ffffff;
-  padding-left: 30px;
+  padding: 30px;
   display:flex;
   flex-direction: column;
-  font-family:sans-serif;
+  font-family:"Raleway",sans-serif;
+  line-height: 35px;
 
   h1{
     color: #ffffff;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 600;
-    font-family: sans-serif;
+    font-family: "Raleway",sans-serif;
+    margin-bottom: 5px;
   }
   span{
-    font-size: 18px;
+    font-size: 26px;
     font-weight: 400;
   }
   div{
@@ -75,60 +90,72 @@ export const Informations = styled.div`
    }
 `;
 
+export const HeaderCard = styled.header`
+    height: 80px;
+    width: 400px;
+    background: #22333B;
+    border-radius: 10px 10px 0px 0px;
+    display:flex;
+    align-items: center;
+
+    h1{
+      font-size: 35px;
+      font-weight: 600;
+      margin-left: 25px;
+    }
+`;
+
 export const Produtos = styled.section`
+  width: 400px;
+  height: 300px;
   background: #7D7D7D;
   border-radius: 10px;
   color: #ffffff;
   grid-column: 1/2;
-  height: 300px;
-  width: 450px;
-  margin-left: 30px;
+  margin-left: 10px;
   display:flex;
   flex-direction: column;
-  font-family:sans-serif;
-  margin-bottom: 50px;
-  
-  header{
-    height: 60px;
-    width: 420px;
-    background: #22333B;
-    border-radius: 10px / 10px 10px 0px 0px ;
-    padding-left: 30px;
-  }
+  font-family:"Raleway",sans-serif;
+  margin-left: 60px;
 
-  header h1 {
-    font-size: 25px;
-    font-weight: 600;
-  }
-  
-  ul{
+  ul {
+    margin-top: 20px;
     display: grid;
-    margin-left: 10px;
     grid-template-columns: 1fr;
     grid-gap: 15px;
     list-style: none;
-    width: 400px;
-    height: 200px;
+    height: 180px;
     padding-right: 10px;
     padding-left: 10px;
     overflow: hidden;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #E0913E; 
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #E0913E; 
+    }
   }
+
   ul li {
-    padding-top: 10px;
-    padding-left: 10px;
+    width: 350px;
+    padding: 10px;
     background: #E0913E;
-    height: 80px;
+    height: 90px;
     border-radius: 8px;
     position: relative;
     font-size: 17px;
     font-weight: 500;
-    &:hover {
-      cursor: pointer;
-      box-shadow: 0px 8px 15px #818181;
-      transition-duration: 0.2s;
-      transform: translateY(-5px);
-    }
   }
 
   ul li section{
@@ -141,47 +168,37 @@ export const Produtos = styled.section`
 `;
 
 export const Observacoes = styled.section`
-  grid-column: 2/3;
-  margin-right: 30px;
+  width: 400px;
   height: 300px;
-  margin-left: 30px;
-  margin-bottom: 50px;
+  grid-column: 2/3;
+  margin-right: 10px;
   color: #ffffff;
   background: #7D7D7D;
   display:flex;
   flex-direction: column;
-  font-family:sans-serif;
+  font-family:"Raleway",sans-serif;
   border-radius: 10px;
-  align-items: center;
+  margin-left: 30px;
   
-  header{
-    height: 60px;
-    width: 404px;
-    background: #22333B;
-    border-radius: 10px / 10px 10px 0px 0px ;
-    padding-left: 30px;
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  header h1 {
-    font-size: 25px;
-    font-weight: 600;
-  }
-
-  div {
+  div{
+    margin-top: 35px;
+    height: 150px;
+    width:325px;
     background: #ffffff;
-    width: 400px;
-    height: 200px;
-    margin-top: 15px;
-    border-radius: 3px;
+    border: 0;
+    border-radius: 10px;
+    font-family:"Raleway",sans-serif;
+    resize: none;
+    padding: 10px;
+    font-size: 18px;
+    color: #0f0f0f;
   }
-
-  div span{
-    color: #010101;
-    padding: 5px;
-    font-size: 20px;
-    font-family:sans-serif;
-  }
-  
 `;
 
 export const AreaButton = styled.footer`
@@ -208,7 +225,7 @@ export const ModalButton = styled.div`
   justify-content: center;
   text-align: center;
   color: #FFFFFF;
-  font-family: sans-serif;
+  font-family: "Raleway",sans-serif;
 
   &:hover {
     cursor: pointer;

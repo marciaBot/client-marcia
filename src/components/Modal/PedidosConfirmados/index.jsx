@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useRef, useEffect, useCallback } from 'react';
@@ -6,13 +9,14 @@ import Map from "../../Map/index";
 import {
   Background,
   ModalWrapper,
-  ModalButton,
   Header,
   Observacoes,
   Produtos,
   Informations,
-  AreaButton,
+  HeaderCard,
 } from "./styles";
+
+import CloseButton from "../../../assets/images/x.svg";
 
 function Modal({ mostrarModal, setMostrarModal }) {
   const modalRef = useRef();
@@ -25,30 +29,12 @@ function Modal({ mostrarModal, setMostrarModal }) {
     transform: mostrarModal ? `translateZ(0%)` : `translateZ(100%)`,
   });
 
-  const fecharModal = (event) => {
-    if (modalRef.current === event.target) {
-      setMostrarModal(false);
-    }
-  };
-
-  const keyPress = useCallback((event) => {
-    if (event.key === 'Escape' && mostrarModal) {
-      setMostrarModal(false);
-    }
-  }, [setMostrarModal, mostrarModal]);
-
-  useEffect(() => {
-    document.addEventListener('keydown', keyPress);
-    return () => document.removeEventListener('keydown', keyPress);
-  }, [keyPress]);
-
   return (
     <>
       { mostrarModal ? (
-        <Background ref={modalRef} onClick={fecharModal}>
-
+        <Background ref={modalRef}>
           <animated.div style={animation}>
-            <ModalWrapper mostrarModal={mostrarModal}>
+            <ModalWrapper onClick={() => setMostrarModal((prev) => !prev)}>
               <Header>
                 <Informations>
                   <h1>Lucas da Silva Freitas</h1>
@@ -77,12 +63,18 @@ function Modal({ mostrarModal, setMostrarModal }) {
                     </span>
                   </p>
                 </Informations>
-                <Map />
+                <section>
+                  <Map />
+                  <img
+                    src={CloseButton}
+                    onClick={() => setMostrarModal(false)}
+                  />
+                </section>
               </Header>
               <Produtos>
-                <header>
+                <HeaderCard>
                   <h1>Itens</h1>
-                </header>
+                </HeaderCard>
                 <section>
                   <ul>
                     <li>
@@ -145,12 +137,14 @@ function Modal({ mostrarModal, setMostrarModal }) {
                 </section>
               </Produtos>
               <Observacoes>
-                <header>
+                <HeaderCard>
                   <h1>Observações</h1>
-                </header>
-                <div>
-                  <span>Alguma Informação</span>
-                </div>
+                </HeaderCard>
+                <section>
+                  <div>
+                    Alguma coisa
+                  </div>
+                </section>
               </Observacoes>
             </ModalWrapper>
           </animated.div>

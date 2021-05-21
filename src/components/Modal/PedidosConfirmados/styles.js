@@ -25,11 +25,13 @@ export const ModalWrapper = styled.div`
   grid-gap: 20px 15px;
   z-index: 10;
   border-radius: 10px;
+  justify-content: center;
 `;
 
 export const Header = styled.header`
   background: #22333B;
   width: 100%;
+  height: 2000px;
   height: 180px;
   grid-column: 1/3;
   border-radius: 10px/ 10px 10px 0px 0px;
@@ -39,16 +41,16 @@ export const Header = styled.header`
 
 export const Informations = styled.div`
   color: #ffffff;
-  padding-left: 30px;
+  padding: 30px;
   display:flex;
   flex-direction: column;
-  font-family:sans-serif;
+  font-family:"Raleway",sans-serif;
 
   h1{
     color: #ffffff;
     font-size: 30px;
     font-weight: 600;
-    font-family: sans-serif;
+    font-family: "Raleway",sans-serif;
   }
   span{
     font-size: 18px;
@@ -76,21 +78,21 @@ export const Informations = styled.div`
 `;
 
 export const Produtos = styled.section`
+  width: 400px;
+  height: 300px;
   background: #7D7D7D;
   border-radius: 10px;
   color: #ffffff;
   grid-column: 1/2;
-  height: 300px;
-  width: 450px;
-  margin-left: 30px;
+  margin-left: 10px;
   display:flex;
   flex-direction: column;
-  font-family:sans-serif;
-  margin-bottom: 50px;
+  font-family:"Raleway",sans-serif;
+  margin-left: 60px;
   
   header{
-    height: 60px;
-    width: 420px;
+    height: 50px;
+    width: 400px;
     background: #22333B;
     border-radius: 10px / 10px 10px 0px 0px ;
     padding-left: 30px;
@@ -99,15 +101,15 @@ export const Produtos = styled.section`
   header h1 {
     font-size: 25px;
     font-weight: 600;
+    padding: 10px;
   }
   
   ul{
+    margin-top: 10px;
     display: grid;
-    margin-left: 10px;
     grid-template-columns: 1fr;
     grid-gap: 15px;
     list-style: none;
-    width: 400px;
     height: 200px;
     padding-right: 10px;
     padding-left: 10px;
@@ -141,37 +143,36 @@ export const Produtos = styled.section`
 `;
 
 export const Observacoes = styled.section`
-  grid-column: 2/3;
-  margin-right: 30px;
+  width: 400px;
   height: 300px;
-  margin-left: 30px;
-  margin-bottom: 50px;
+  grid-column: 2/3;
+  margin-right: 10px;
   color: #ffffff;
   background: #7D7D7D;
   display:flex;
   flex-direction: column;
-  font-family:sans-serif;
+  font-family:"Raleway",sans-serif;
   border-radius: 10px;
-  align-items: center;
+  margin-left: 30px;
+
   
   header{
     height: 60px;
-    width: 404px;
     background: #22333B;
-    border-radius: 10px / 10px 10px 0px 0px ;
+    border-radius: 10px / 10px 10px 0px 0px ;;
     padding-left: 30px;
   }
 
   header h1 {
     font-size: 25px;
     font-weight: 600;
+    padding: 10px;
   }
-
+  
   div {
     background: #ffffff;
-    width: 400px;
     height: 200px;
-    margin-top: 15px;
+    margin: 15px;
     border-radius: 3px;
   }
 
@@ -179,9 +180,8 @@ export const Observacoes = styled.section`
     color: #010101;
     padding: 5px;
     font-size: 20px;
-    font-family:sans-serif;
+    font-family:"Raleway",sans-serif;
   }
-  
 `;
 
 export const AreaButton = styled.footer`
@@ -208,7 +208,7 @@ export const ModalButton = styled.div`
   justify-content: center;
   text-align: center;
   color: #FFFFFF;
-  font-family: sans-serif;
+  font-family: "Raleway",sans-serif;
 
   &:hover {
     cursor: pointer;

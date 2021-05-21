@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from "react-spring";
+import Map from "../../Map/index";
 import {
   Background,
   ModalWrapper,
@@ -76,6 +77,7 @@ function Modal({ mostrarModal, setMostrarModal }) {
                     </span>
                   </p>
                 </Informations>
+                <Map />
               </Header>
               <Produtos>
                 <header>

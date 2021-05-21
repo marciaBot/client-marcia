@@ -31,6 +31,7 @@ export const ModalWrapper = styled.div`
 export const Header = styled.header`
   background: #22333B;
   width: 100%;
+  height: 2000px;
   height: 180px;
   grid-column: 1/3;
   border-radius: 10px/ 10px 10px 0px 0px;
@@ -40,16 +41,16 @@ export const Header = styled.header`
 
 export const Informations = styled.div`
   color: #ffffff;
-  padding-left: 30px;
+  padding: 30px;
   display:flex;
   flex-direction: column;
-  font-family:sans-serif;
+  font-family:"Raleway",sans-serif;
 
   h1{
     color: #ffffff;
     font-size: 30px;
     font-weight: 600;
-    font-family: sans-serif;
+    font-family: "Raleway",sans-serif;
   }
   span{
     font-size: 18px;
@@ -86,12 +87,12 @@ export const Produtos = styled.section`
   margin-left: 10px;
   display:flex;
   flex-direction: column;
-  font-family:sans-serif;
+  font-family:"Raleway",sans-serif;
   margin-left: 60px;
   
   header{
-    height: 60px;
-    width: 370px;
+    height: 50px;
+    width: 400px;
     background: #22333B;
     border-radius: 10px / 10px 10px 0px 0px ;
     padding-left: 30px;
@@ -100,9 +101,11 @@ export const Produtos = styled.section`
   header h1 {
     font-size: 25px;
     font-weight: 600;
+    padding: 10px;
   }
   
   ul{
+    margin-top: 10px;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 15px;
@@ -148,7 +151,7 @@ export const Observacoes = styled.section`
   background: #7D7D7D;
   display:flex;
   flex-direction: column;
-  font-family:sans-serif;
+  font-family:"Raleway",sans-serif;
   border-radius: 10px;
   margin-left: 30px;
 
@@ -163,6 +166,7 @@ export const Observacoes = styled.section`
   header h1 {
     font-size: 25px;
     font-weight: 600;
+    padding: 10px;
   }
   
   textarea{
@@ -171,7 +175,7 @@ export const Observacoes = styled.section`
     border: 0;
     border-radius: 3px;
     margin: 10px;
-    font-family:sans-serif;
+    font-family:"Raleway",sans-serif;
     resize: none;
   }
 
@@ -206,7 +210,7 @@ export const ModalButton = styled.div`
   justify-content: center;
   text-align: center;
   color: #FFFFFF;
-  font-family: sans-serif;
+  font-family: "Raleway",sans-serif;
 
   &:hover {
     cursor: pointer;

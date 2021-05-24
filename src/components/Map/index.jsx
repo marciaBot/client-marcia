@@ -12,7 +12,7 @@ import mapMarkerImg from "../../assets/images/pin.png";
 const mapIcon = L.icon({
   iconUrl: mapMarkerImg,
 
-  iconSize: [32, 32],
+  iconSize: [32, 40],
 
 });
 

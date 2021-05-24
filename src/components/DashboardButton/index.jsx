@@ -1,23 +1,39 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
-import Modal from "../Modal/PedidosConfirmados/index";
+import ModalConfirmados from "../Modal/PedidosConfirmados";
+import ModalConfirmar from "../Modal/PedidosConfirmar";
 import { Container, ButtonContent } from "./styles";
 
-function DashboardButton() {
+function DashboardButton(props) {
   const [mostrarModal, setMostrarModal] = useState(false);
 
   const abrirModal = () => {
     setMostrarModal((prev) => !prev);
   };
+
   return (
     <Container onClick={abrirModal}>
       <ButtonContent>
-        <span>Lucas da Silva Freitas</span>
+        <span>{props.nome}</span>
         <div>
-          <p>Quantidade: 2</p>
-          <p>Valor: R$ 195,00</p>
+          <p>
+            Valor: R$
+            {props.valor}
+          </p>
         </div>
       </ButtonContent>
-      <Modal mostrarModal={mostrarModal} setMostrarModal={setMostrarModal} />
+      {props.aprovado ? (
+        <ModalConfirmados
+          mostrarModal={mostrarModal}
+          setMostrarModal={setMostrarModal}
+        />
+      ) : (
+        <ModalConfirmar
+          mostrarModal={mostrarModal}
+          setMostrarModal={setMostrarModal}
+        />
+      )}
     </Container>
   );
 }

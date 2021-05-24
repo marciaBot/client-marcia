@@ -30,7 +30,42 @@ export const BottomContent = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  height: 100%;
+  height: 110%;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding: 15px;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: black;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: black;
+  }
 `;
 
 export const PageTitle = styled.h1``;
+
+export const Input = styled.input`
+  width: 450px;
+  height: 45px;
+  padding: 15px;
+  outline: none !important;
+  border: 1px solid #22333b;
+  border-radius: 10px;
+  transition: ease-in 0.1s;
+
+  &::-webkit-input-placeholder {
+    justify-items: center;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &:focus {
+    border: 3px solid #22333b;
+  }
+`;

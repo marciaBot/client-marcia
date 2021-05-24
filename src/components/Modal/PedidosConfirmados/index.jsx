@@ -56,11 +56,6 @@ function Modal({ mostrarModal, setMostrarModal }) {
                       {'  '}
                       <b>(91) 4002-8922</b>
                     </span>
-                    <span>
-                      Forma de pagamento:
-                      {' '}
-                      <b>Dinheiro</b>
-                    </span>
                   </p>
                 </Informations>
                 <section>

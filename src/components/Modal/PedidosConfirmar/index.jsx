@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback } from "react";
 import { useSpring, animated } from "react-spring";
 import Map from "../../Map/index";
 import {
@@ -33,7 +33,7 @@ function Modal({ mostrarModal, setMostrarModal }) {
 
   return (
     <>
-      { mostrarModal ? (
+      {mostrarModal ? (
         <Background ref={modalRef}>
           <animated.div style={animation}>
             <ModalWrapper onClick={() => setMostrarModal((prev) => !prev)}>
@@ -55,13 +55,8 @@ function Modal({ mostrarModal, setMostrarModal }) {
                   <p>
                     <span>
                       Telefone:
-                      {'  '}
+                      {"  "}
                       <b>(91) 4002-8922</b>
-                    </span>
-                    <span>
-                      Forma de pagamento:
-                      {' '}
-                      <b>Dinheiro</b>
                     </span>
                   </p>
                 </Informations>

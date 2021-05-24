@@ -18,6 +18,7 @@ export const ButtonContent = styled.div`
   padding: 15px;
   text-decoration: none;
   transition: all 0.3s ease 0s;
+  margin-bottom: 20px;
 
   div {
     display: flex;

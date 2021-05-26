@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
 /* eslint-disable no-plusplus */
@@ -5,7 +6,7 @@
 /* eslint-disable no-constant-condition */
 /* eslint-disable no-cond-assign */
 /* eslint-disable no-alert */
-import React, { useState, useEffect, setTime } from "react";
+import React, { useState, useEffect } from "react";
 import {
   TopContent,
   Container,
@@ -21,15 +22,18 @@ import DashboardButton from "../../components/DashboardButton";
 function PedidosConfirmados() {
   const [sales, setSales] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+
   useEffect(() => {
-    const interval = setInterval(() => setTime(Date.now()), 1000);
-    api.get("/venda").then((response) => {
-      const salesData = response.data;
-      const salesList = salesData.filter((sale) => sale.aprovado === true);
-      setSales(salesList);
-      clearInterval(interval);
-    });
-  }, [sales]);
+    async function loadSale() {
+      api.get("/venda").then((response) => {
+        const salesData = response.data;
+        const salesList = salesData.filter((sale) => sale.aprovado === true && sale.valorTotal !== null);
+        setSales(salesList);
+      });
+    }
+    loadSale();
+  }, []);
+
   return (
     <Container>
       <Navbar />
@@ -63,6 +67,8 @@ function PedidosConfirmados() {
                 valor={sale.valorTotal}
                 key={sale.id}
                 aprovado={sale.aprovado}
+                id={sale.id}
+                clienteId={sale.clienteId}
               />
             ))}
         </BottomContent>

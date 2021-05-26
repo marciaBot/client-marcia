@@ -1,11 +1,16 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-shadow */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useRef, useEffect, useCallback } from "react";
+import React, {
+  useRef,
+} from "react";
 import { useSpring, animated } from "react-spring";
 import Map from "../../Map/index";
+import CloseButton from "../../../assets/images/x.svg";
 import {
   Background,
   ModalWrapper,
@@ -16,11 +21,13 @@ import {
   Informations,
   AreaButton,
   HeaderCard,
+
 } from "./styles";
+import api from "../../../services/api";
 
-import CloseButton from "../../../assets/images/x.svg";
-
-function Modal({ mostrarModal, setMostrarModal }) {
+function Modal({
+  mostrarModal, setMostrarModal, nome, valor, id, quantidade, telefone, itensData,
+}) {
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -31,32 +38,61 @@ function Modal({ mostrarModal, setMostrarModal }) {
     transform: mostrarModal ? `translateZ(0%)` : `translateZ(100%)`,
   });
 
+  async function deletarPedido() {
+    try {
+      const response = await api.delete(`/venda/${id}`);
+      console.log(response);
+      setMostrarModal(false);
+    } catch (err) {
+      alert("Erro ao deletar pedido.");
+    }
+  }
+
+  async function aprovarPedido() {
+    try {
+      const texto = document.getElementById("observacao").value;
+      const data = {
+        obs: texto,
+        aprovado: true,
+      };
+      await api.put(`/venda/${id}`, data);
+      setMostrarModal(false);
+    } catch (err) {
+      alert("Erro ao aprovar pedido");
+    }
+  }
+
   return (
     <>
       {mostrarModal ? (
         <Background ref={modalRef}>
           <animated.div style={animation}>
-            <ModalWrapper onClick={() => setMostrarModal((prev) => !prev)}>
+            <ModalWrapper>
               <Header>
                 <Informations>
-                  <h1>Lucas da Silva Freitas</h1>
+                  <h1>{nome}</h1>
                   <div>
                     <span>
                       Quantidade:
                       {' '}
-                      <b>2</b>
+                      <b>{quantidade}</b>
                     </span>
                     <span>
                       Total:
-                      {' '}
-                      <b>R$ 195,00</b>
+                      {" "}
+                      <b>
+                        {Intl.NumberFormat("pt-BR", {
+                          style: "currency",
+                          currency: "BRL",
+                        }).format(valor)}
+                      </b>
                     </span>
                   </div>
                   <p>
                     <span>
                       Telefone:
                       {"  "}
-                      <b>(91) 4002-8922</b>
+                      <b>{telefone}</b>
                     </span>
                   </p>
                 </Informations>
@@ -74,62 +110,27 @@ function Modal({ mostrarModal, setMostrarModal }) {
                 </HeaderCard>
                 <section>
                   <ul>
-                    <li>
-                      <strong>Item: </strong>
-                      <span>XXXXXXXXXX</span>
-                      <section>
-                        <div>
-                          <strong>Quantidade: </strong>
-                          <span>2</span>
-                        </div>
-                        <div>
-                          <strong>Valor: </strong>
-                          <span>R$200,00</span>
-                        </div>
-                      </section>
-                    </li>
-                    <li>
-                      <strong>Item: </strong>
-                      <span>XXXXXXXXXX</span>
-                      <section>
-                        <div>
-                          <strong>Quantidade: </strong>
-                          <span>2</span>
-                        </div>
-                        <div>
-                          <strong>Valor: </strong>
-                          <span>R$200,00</span>
-                        </div>
-                      </section>
-                    </li>
-                    <li>
-                      <strong>Item: </strong>
-                      <span>XXXXXXXXXX</span>
-                      <section>
-                        <div>
-                          <strong>Quantidade: </strong>
-                          <span>2</span>
-                        </div>
-                        <div>
-                          <strong>Valor: </strong>
-                          <span>R$200,00</span>
-                        </div>
-                      </section>
-                    </li>
-                    <li>
-                      <strong>Item: </strong>
-                      <span>XXXXXXXXXX</span>
-                      <section>
-                        <div>
-                          <strong>Quantidade: </strong>
-                          <span>2</span>
-                        </div>
-                        <div>
-                          <strong>Valor: </strong>
-                          <span>R$200,00</span>
-                        </div>
-                      </section>
-                    </li>
+                    {itensData.map((item) => (
+                      <li key={item.id}>
+                        <strong>Item: </strong>
+                        <span>{item.produto}</span>
+                        <section>
+                          <div>
+                            <strong>Quantidade: </strong>
+                            <span>{item.quantidade}</span>
+                          </div>
+                          <div>
+                            <strong>Valor: </strong>
+                            <span>
+                              {Intl.NumberFormat("pt-BR", {
+                                style: "currency",
+                                currency: "BRL",
+                              }).format(item.valor)}
+                            </span>
+                          </div>
+                        </section>
+                      </li>
+                    ))}
                   </ul>
                 </section>
               </Produtos>
@@ -138,12 +139,16 @@ function Modal({ mostrarModal, setMostrarModal }) {
                   <h1>Observações</h1>
                 </HeaderCard>
                 <section>
-                  <textarea placeholder="Escreva aqui sua observação ..." />
+                  <textarea id="observacao" placeholder="Escreva aqui sua observação ..." />
                 </section>
               </Observacoes>
               <AreaButton>
-                <ModalButton denny>Negar Pedido</ModalButton>
-                <ModalButton confirmation>Aceitar Pedido</ModalButton>
+                <ModalButton onClick={() => deletarPedido()} denny>
+                  Negar Pedido
+                </ModalButton>
+                <ModalButton onClick={() => aprovarPedido()} confirmation>
+                  Aceitar Pedido
+                </ModalButton>
               </AreaButton>
             </ModalWrapper>
           </animated.div>

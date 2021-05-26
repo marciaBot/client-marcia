@@ -1,3 +1,6 @@
+/* eslint-disable max-len */
+/* eslint-disable spaced-comment */
+/* eslint-disable no-unused-vars */
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
 /* eslint-disable no-plusplus */
@@ -5,7 +8,7 @@
 /* eslint-disable no-constant-condition */
 /* eslint-disable no-cond-assign */
 /* eslint-disable no-alert */
-import React, { useEffect, useState, setTime } from "react";
+import React, { useEffect, useState } from "react";
 import {
   TopContent,
   Container,
@@ -22,15 +25,16 @@ import DashboardButton from "../../components/DashboardButton";
 function PedidosConfirmar() {
   const [sales, setSales] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+
   useEffect(() => {
-    const interval = setInterval(() => setTime(Date.now()), 1000);
-    api.get("/venda").then((response) => {
+    async function loadSale() {
+      const response = await api.get("/venda");
       const salesData = response.data;
-      const salesList = salesData.filter((sale) => sale.aprovado === false);
+      const salesList = salesData.filter((sale) => sale.aprovado === false && sale.valorTotal !== null);
       setSales(salesList);
-      clearInterval(interval);
-    });
-  }, [sales]);
+    }
+    loadSale();
+  }, []);
 
   return (
     <Container>
@@ -65,6 +69,8 @@ function PedidosConfirmar() {
                 valor={sale.valorTotal}
                 key={sale.id}
                 aprovado={sale.aprovado}
+                id={sale.id}
+                clienteId={sale.clienteId}
               />
             ))}
         </BottomContent>
